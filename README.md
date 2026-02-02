@@ -30,13 +30,13 @@ Right now it simulates labs — when deployed, it'll actually spin up real conta
 
 ```
 @Bagley start dvwa
-→ ✅ dvwa-mauro-1 started at 192.168.100.50
+→ ✅ dvwa-h4ch1-1 started at 192.168.100.50
 
 @Bagley what's running?
 → 📋 You have DVWA running for 2 hours
 
 @Bagley stop dvwa
-→ 🛑 dvwa-mauro-1 stopped
+→ 🛑 dvwa-h4ch1-1 stopped
 ```
 
 ### Via CLI (for testing now)
@@ -52,13 +52,13 @@ python tools/cli.py
 • JUICE-SHOP - OWASP Juice Shop (beginner)
 
 > start dvwa
-✅ dvwa-mauro-1 started successfully
+✅ dvwa-h4ch1-1 started successfully
 📍 IP: 192.168.100.135
 🔗 Access: http://192.168.100.135
 
 > status
 📋 Active Labs:
-🟢 dvwa-mauro-1 | 192.168.100.135 | Uptime: 0:15:32
+🟢 dvwa-h4ch1-1 | 192.168.100.135 | Uptime: 0:15:32
 ```
 
 ## Available Labs
@@ -92,7 +92,7 @@ pip install -r requirements.txt
 PYTHONPATH=. python3 tools/cli.py
 ```
 
-For AI features, you'll need an OpenRouter API key. Ask the maintainer.
+For AI features, you'll need an OpenRouter API key.
 
 ## How it works
 
@@ -136,9 +136,6 @@ bagley/
 - [ ] Auto-shutdown timers
 - [ ] Usage tracking
 
-## Contributing
-
-This is a small club project. If you want to help, just reach out.
 
 ## License
 
@@ -146,4 +143,4 @@ MIT - do whatever you want with it.
 
 ---
 
-Built for CTF practice at a cybersecurity club.
+Built for a cybersecurity club.
