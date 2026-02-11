@@ -1,0 +1,27 @@
+[Unit]
+Description=Bagley CTF Lab Bot
+After=network.target docker.service
+Requires=docker.service
+
+[Service]
+Type=simple
+User=user
+WorkingDirectory=/home/user/bagley-cod
+EnvironmentFile=/home/user/bagley-cod/.env
+ExecStart=/usr/bin/python3 -m discord_bot.bot
+Restart=always
+RestartSec=10
+
+# Security restrictions
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/home/user/bagley-cod/data /home/user/bagley-cod/logs
+
+# Resource limits
+MemoryLimit=512M
+CPUQuota=50%
+
+[Install]
+WantedBy=multi-user.target

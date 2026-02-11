@@ -1,0 +1,14 @@
+{
+  "id": "crypto-001",
+  "title": "Caesar's Secret",
+  "category": "cryptography",
+  "difficulty": "easy",
+  "points": 100,
+  "description": "Decrypt this message: Wkh txlfn eurzq ira mxpsv ryhu wkh odcb grj",
+  "flag": "flag{the_quick_brown_fox_jumps_over_the_lazy_dog}",
+  "hints": [
+    "Classic shift cipher",
+    "Try ROT13 first",
+    "The shift is 3"
+  ]
+}

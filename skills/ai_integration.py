@@ -1,139 +1,95 @@
-import json
-import os
-import re
-from typing import Any, Dict, Optional
+"""OpenRouter API integration for natural language parsing"""
 
+import os
+import json
+import logging
 import requests
+from typing import Dict, Optional
+from config.settings import OPENROUTER_API_KEY, AI_MODEL
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 
 class AIOrchestrator:
-    def __init__(self) -> None:
-        self.api_key = os.getenv("OPENROUTER_API_KEY")
-        self.model = os.getenv("OPENROUTER_MODEL", "meta-llama/llama-3.3-70b-instruct")
-        self.base_url = "https://openrouter.ai/api/v1/chat/completions"
+    """Natural language command parsing via OpenRouter"""
 
-    def _headers(self) -> Dict[str, str]:
-        return {
-            "Authorization": f"Bearer {self.api_key}",
-            "Content-Type": "application/json",
-            "HTTP-Referer": "https://localhost",
-            "X-Title": "Bagley",
-        }
+    def __init__(self, api_key: Optional[str] = None):
+        self.api_key = api_key or OPENROUTER_API_KEY
+        self.endpoint = "https://openrouter.ai/api/v1/chat/completions"
+        self.model = AI_MODEL
 
-    def _clean_json(self, content: str) -> str:
-        content = content.strip()
-        content = re.sub(r"^```(?:json)?", "", content, flags=re.IGNORECASE).strip()
-        content = re.sub(r"```$", "", content).strip()
-        return content
+        self.system_prompt = """You are a CTF lab assistant. Parse user commands and return JSON.
 
-    def parse_command(self, user_input: str, username: str) -> Dict[str, Any]:
+Available actions: start, stop, delete, status, list, help
+Available labs: dvwa, webgoat, juice-shop, metasploitable
+
+Return JSON format:
+{
+  "action": "start|stop|delete|status|list|help",
+  "lab_type": "dvwa|webgoat|juice-shop|metasploitable",
+  "success": true
+}
+
+Examples:
+"start dvwa" -> {"action": "start", "lab_type": "dvwa", "success": true}
+"I need a webgoat lab" -> {"action": "start", "lab_type": "webgoat", "success": true}
+"stop my juice shop" -> {"action": "stop", "lab_type": "juice-shop", "success": true}
+"what's running?" -> {"action": "status", "success": true}
+"list available labs" -> {"action": "list", "success": true}
+
+Only return valid JSON. No explanations."""
+
+    def parse_command(self, user_input: str) -> Dict:
+        """Parse natural language command"""
+
         if not self.api_key:
-            return {"success": False, "error": "AI is disabled (no API key)"}
+            logger.warning("No OpenRouter API key configured")
+            return {"error": "AI parsing not available"}
 
-        system_prompt = (
-            "You are a command parser for a lab orchestrator. "
-            "Return ONLY valid JSON with keys: action, lab_type. "
-            "Valid actions: start, stop, delete, status, list, help. "
-            "Valid lab types: dvwa, webgoat, metasploitable, juice-shop. "
-            "If no lab type is mentioned, use null."
-        )
-
-        payload = {
-            "model": self.model,
-            "messages": [
-                {"role": "system", "content": system_prompt},
-                {
-                    "role": "user",
-                    "content": f"User: {username}\nCommand: {user_input}",
+        try:
+            response = requests.post(
+                self.endpoint,
+                headers={
+                    "Authorization": f"Bearer {self.api_key}",
+                    "Content-Type": "application/json",
                 },
-            ],
-            "temperature": 0.3,
-            "max_tokens": 200,
-        }
-
-        try:
-            response = requests.post(
-                self.base_url,
-                headers=self._headers(),
-                json=payload,
-                timeout=30,
+                json={
+                    "model": self.model,
+                    "messages": [
+                        {"role": "system", "content": self.system_prompt},
+                        {"role": "user", "content": user_input}
+                    ],
+                },
+                timeout=30
             )
+
             response.raise_for_status()
             data = response.json()
-            content = data["choices"][0]["message"]["content"]
-            cleaned = self._clean_json(content)
-            parsed = json.loads(cleaned)
-            return {"success": True, "command": parsed}
-        except requests.RequestException as exc:
-            return {"success": False, "error": f"Request failed: {exc}"}
-        except (KeyError, IndexError, json.JSONDecodeError) as exc:
-            return {"success": False, "error": f"Invalid AI response: {exc}"}
 
-    def get_help_response(self, topic: Optional[str] = None) -> Dict[str, Any]:
-        if not self.api_key:
-            return {"success": False, "error": "AI is disabled (no API key)"}
+            # Extract response
+            content = data.get('choices', [{}])[0].get('message', {}).get('content', '')
 
-        prompt = "Provide a concise help response for the Bagley CLI."
-        if topic:
-            prompt = f"Explain how to use '{topic}' in Bagley CLI."
+            # Clean markdown code blocks if present
+            content = content.strip()
+            if content.startswith('```json'):
+                content = content[7:]
+            if content.startswith('```'):
+                content = content[3:]
+            if content.endswith('```'):
+                content = content[:-3]
+            content = content.strip()
 
-        payload = {
-            "model": self.model,
-            "messages": [
-                {"role": "system", "content": "You are a helpful assistant."},
-                {"role": "user", "content": prompt},
-            ],
-            "temperature": 0.7,
-            "max_tokens": 300,
-        }
+            # Parse JSON
+            result = json.loads(content)
+            return result
 
-        try:
-            response = requests.post(
-                self.base_url,
-                headers=self._headers(),
-                json=payload,
-                timeout=30,
-            )
-            response.raise_for_status()
-            data = response.json()
-            content = data["choices"][0]["message"]["content"]
-            return {"success": True, "response": content.strip()}
-        except requests.RequestException as exc:
-            return {"success": False, "error": f"Request failed: {exc}"}
-        except (KeyError, IndexError, json.JSONDecodeError) as exc:
-            return {"success": False, "error": f"Invalid AI response: {exc}"}
-
-    def explain_lab(self, lab_type: str) -> Dict[str, Any]:
-        if not self.api_key:
-            return {"success": False, "error": "AI is disabled (no API key)"}
-
-        prompt = (
-            "Explain what this lab type is used for and mention common vulnerabilities: "
-            f"{lab_type}"
-        )
-
-        payload = {
-            "model": self.model,
-            "messages": [
-                {"role": "system", "content": "You are a cybersecurity tutor."},
-                {"role": "user", "content": prompt},
-            ],
-            "temperature": 0.7,
-            "max_tokens": 300,
-        }
-
-        try:
-            response = requests.post(
-                self.base_url,
-                headers=self._headers(),
-                json=payload,
-                timeout=30,
-            )
-            response.raise_for_status()
-            data = response.json()
-            content = data["choices"][0]["message"]["content"]
-            return {"success": True, "response": content.strip()}
-        except requests.RequestException as exc:
-            return {"success": False, "error": f"Request failed: {exc}"}
-        except (KeyError, IndexError, json.JSONDecodeError) as exc:
-            return {"success": False, "error": f"Invalid AI response: {exc}"}
+        except requests.RequestException as e:
+            logger.error(f"API request failed: {e}")
+            return {"error": "AI service unavailable"}
+        except json.JSONDecodeError as e:
+            logger.error(f"JSON parse error: {e} - Content: {content}")
+            return {"error": "Invalid response from AI"}
+        except Exception as e:
+            logger.error(f"Unexpected error: {e}")
+            return {"error": "Internal error"}

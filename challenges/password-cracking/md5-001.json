@@ -1,0 +1,14 @@
+{
+  "id": "pass-001",
+  "title": "Crack the Hash",
+  "category": "password-cracking",
+  "difficulty": "easy",
+  "points": 100,
+  "description": "Crack this MD5 hash: 5f4dcc3b5aa765d61d8327deb882cf99",
+  "flag": "flag{password}",
+  "hints": [
+    "Common password",
+    "Try a wordlist",
+    "The hash is unsalted"
+  ]
+}

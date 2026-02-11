@@ -1,0 +1,13 @@
+{
+  "id": "osint-001",
+  "title": "Find the Email",
+  "category": "osint",
+  "difficulty": "easy",
+  "points": 150,
+  "description": "Find the contact email for the COD Cybersecurity Club and submit it as the flag.",
+  "flag": "flag{cybersecurity@cod.edu}",
+  "hints": [
+    "Check the club website",
+    "Look in the Contact Us section"
+  ]
+}
