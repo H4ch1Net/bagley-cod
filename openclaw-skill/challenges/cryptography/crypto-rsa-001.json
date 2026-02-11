@@ -1,0 +1,19 @@
+{
+  "id": "crypto-rsa-001",
+  "title": "Tiny RSA",
+  "category": "cryptography",
+  "difficulty": "hard",
+  "points": 500,
+  "description": "An RSA key was generated with very small primes:\n\np = 61\nq = 53\ne = 17\nciphertext (c) = 2790\n\nCompute:\n1. n = p × q\n2. φ(n) = (p-1)(q-1)\n3. d = modular inverse of e mod φ(n)\n4. plaintext m = c^d mod n\n\nThe plaintext number corresponds to an ASCII character sequence. Submit it as: flag{plaintext_number}",
+  "flag": "flag{65}",
+  "hints": [
+    "n = 61 × 53 = 3233, φ(n) = 60 × 52 = 3120",
+    "Find d where (17 × d) mod 3120 = 1 → d = 2753",
+    "m = 2790^2753 mod 3233 = 65 (which is ASCII 'A')"
+  ],
+  "resources": [
+    "https://en.wikipedia.org/wiki/RSA_(cryptosystem)#Example",
+    "https://www.cryptool.org/en/cto/rsa-step-by-step"
+  ],
+  "ncl_category": "Cryptography"
+}

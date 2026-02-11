@@ -1,0 +1,19 @@
+{
+  "id": "scan-banner-001",
+  "title": "Banner Grabbing",
+  "category": "scanning",
+  "difficulty": "medium",
+  "points": 200,
+  "description": "You connect to a service using netcat and receive this banner:\n\n$ nc 192.168.1.10 22\nSSH-2.0-OpenSSH_8.9p1 Ubuntu-3ubuntu0.4\n\n$ nc 192.168.1.10 25\n220 mail.target.com ESMTP Postfix (Ubuntu)\n\n$ nc 192.168.1.10 80\n(no banner, but response headers show: Server: nginx/1.18.0)\n\nWhat operating system is the target most likely running, based on all three banners?\n\nSubmit as: flag{os_name} (lowercase)",
+  "flag": "flag{ubuntu}",
+  "hints": [
+    "Look for OS identifiers in the service banners",
+    "SSH banner says 'Ubuntu', SMTP says 'Ubuntu', nginx version matches Ubuntu repos",
+    "All three services consistently identify the OS"
+  ],
+  "resources": [
+    "https://nmap.org/book/man-version-detection.html",
+    "https://linux.die.net/man/1/nc"
+  ],
+  "ncl_category": "Scanning & Reconnaissance"
+}

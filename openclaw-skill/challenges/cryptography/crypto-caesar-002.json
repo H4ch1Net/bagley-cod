@@ -1,0 +1,19 @@
+{
+  "id": "crypto-caesar-002",
+  "title": "Double Caesar",
+  "category": "cryptography",
+  "difficulty": "easy",
+  "points": 100,
+  "description": "This message was encrypted with ROT13:\n\nsyntk{ebg_guvegrra_vf_vgf_bja_vairefr}\n\nDecrypt it to find the flag.",
+  "flag": "flag{rot_thirteen_is_its_own_inverse}",
+  "hints": [
+    "ROT13 shifts each letter by 13 positions",
+    "Applying ROT13 twice gives you the original text",
+    "A→N, B→O, ... N→A — it's symmetrical"
+  ],
+  "resources": [
+    "https://rot13.com/",
+    "https://en.wikipedia.org/wiki/ROT13"
+  ],
+  "ncl_category": "Cryptography"
+}

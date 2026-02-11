@@ -1,0 +1,19 @@
+{
+  "id": "network-portscan-001",
+  "title": "Scan Signature",
+  "category": "network-traffic",
+  "difficulty": "easy",
+  "points": 150,
+  "description": "A packet capture shows the following pattern from source IP 10.10.14.5:\n\nSRC:10.10.14.5 → DST:192.168.1.10 TCP SYN → port 21\nSRC:192.168.1.10 → DST:10.10.14.5 TCP RST,ACK ← port 21\nSRC:10.10.14.5 → DST:192.168.1.10 TCP SYN → port 22\nSRC:192.168.1.10 → DST:10.10.14.5 TCP SYN,ACK ← port 22\nSRC:10.10.14.5 → DST:192.168.1.10 TCP RST → port 22\nSRC:10.10.14.5 → DST:192.168.1.10 TCP SYN → port 23\nSRC:192.168.1.10 → DST:10.10.14.5 TCP RST,ACK ← port 23\n\nThis is a specific type of port scan. The scanner sends SYN, and if it gets SYN-ACK back, it sends RST instead of completing the handshake.\n\nWhat is this scan type called?\n\nSubmit as: flag{scan_name} (lowercase, two words with underscore)",
+  "flag": "flag{syn_scan}",
+  "hints": [
+    "Also known as a 'half-open' scan",
+    "It never completes the three-way handshake",
+    "In nmap, this is the default scan type: nmap -sS"
+  ],
+  "resources": [
+    "https://nmap.org/book/synscan.html",
+    "https://en.wikipedia.org/wiki/Port_scanner#SYN_scanning"
+  ],
+  "ncl_category": "Network Traffic Analysis"
+}

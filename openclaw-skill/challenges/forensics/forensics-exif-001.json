@@ -1,0 +1,19 @@
+{
+  "id": "forensics-exif-001",
+  "title": "Photo Location",
+  "category": "forensics",
+  "difficulty": "easy",
+  "points": 100,
+  "description": "You extract EXIF data from a suspect's photo using exiftool and find:\n\nGPS Latitude: 33 deg 44' 24.12\" N\nGPS Longitude: 116 deg 21' 21.60\" W\nCamera Make: Apple\nCamera Model: iPhone 14 Pro\nDate/Time: 2026:01:15 14:32:00\n\nThese coordinates point to a city in the Coachella Valley, California. What city is this?\n\nSubmit as: flag{city_name} (lowercase)",
+  "flag": "flag{palm_desert}",
+  "hints": [
+    "Convert DMS to decimal: ~33.74, -116.356",
+    "Search these coordinates on Google Maps",
+    "This city is home to College of the Desert"
+  ],
+  "resources": [
+    "https://exiftool.org/",
+    "https://www.gps-coordinates.net/gps-coordinates-converter"
+  ],
+  "ncl_category": "Forensics"
+}

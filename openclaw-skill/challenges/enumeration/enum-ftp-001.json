@@ -1,0 +1,19 @@
+{
+  "id": "enum-ftp-001",
+  "title": "Anonymous FTP",
+  "category": "enumeration",
+  "difficulty": "easy",
+  "points": 100,
+  "description": "An FTP server at 192.168.1.100 allows anonymous login. You connect and list files:\n\n$ ftp 192.168.1.100\nName: anonymous\nPassword: (anything)\n230 Login successful.\nftp> ls /pub/documents\n-rw-r--r-- 1 ftp ftp   1024 Jan 10 2026 readme.txt\n-rw-r--r-- 1 ftp ftp   2048 Jan 10 2026 secret_memo.txt\n-rw-r--r-- 1 ftp ftp    512 Jan 10 2026 todo.txt\n\nWhich file most likely contains sensitive information?\n\nSubmit as: flag{filename}",
+  "flag": "flag{secret_memo.txt}",
+  "hints": [
+    "Look for filenames that suggest sensitive content",
+    "A file named 'secret_memo' stands out among readme and todo files",
+    "Always check files with 'secret', 'password', 'config', 'backup' in their names"
+  ],
+  "resources": [
+    "https://book.hacktricks.xyz/network-services-pentesting/pentesting-ftp",
+    "https://www.computerhope.com/unix/uftp.htm"
+  ],
+  "ncl_category": "Enumeration & Exploitation"
+}

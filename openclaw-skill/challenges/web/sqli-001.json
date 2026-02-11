@@ -1,0 +1,18 @@
+{
+  "id": "web-001",
+  "title": "Login Bypass",
+  "category": "web",
+  "difficulty": "easy",
+  "points": 150,
+  "description": "A login form uses this SQL query on the server:\n\n```sql\nSELECT * FROM users WHERE username = '$user' AND password = '$pass'\n```\n\nWhat input would you enter in the username field to bypass authentication?\n\nSubmit the classic SQL injection payload as the flag: flag{payload_here}\n(Use the simplest single-quote based bypass)",
+  "flag": "flag{' OR '1'='1}",
+  "hints": [
+    "The input is inserted directly into the SQL query",
+    "What happens if you close the string early with a single quote?",
+    "Make the WHERE clause always true"
+  ],
+  "resources": [
+    "https://owasp.org/www-community/attacks/SQL_Injection",
+    "https://portswigger.net/web-security/sql-injection"
+  ]
+}

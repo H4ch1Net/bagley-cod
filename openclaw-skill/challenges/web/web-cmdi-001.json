@@ -1,0 +1,19 @@
+{
+  "id": "web-cmdi-001",
+  "title": "Command Injection",
+  "category": "web",
+  "difficulty": "medium",
+  "points": 250,
+  "description": "A web application has a 'ping' utility that takes an IP address as input:\n\n```php\n$ip = $_GET['ip'];\nsystem(\"ping -c 4 \" . $ip);\n```\n\nThe input is concatenated directly into a shell command without sanitization.\n\nCraft a payload that will also run `cat /etc/passwd` after the ping command.\n\nSubmit the separator character you'd use: flag{separator}\n\nHint: You need a shell metacharacter that says 'run this next command regardless'",
+  "flag": "flag{;}",
+  "hints": [
+    "Shell metacharacters like ;, |, &&, || can chain commands",
+    "The semicolon (;) runs the next command regardless of the previous one's exit code",
+    "Payload: 127.0.0.1; cat /etc/passwd"
+  ],
+  "resources": [
+    "https://owasp.org/www-community/attacks/Command_Injection",
+    "https://portswigger.net/web-security/os-command-injection"
+  ],
+  "ncl_category": "Web Application Exploitation"
+}

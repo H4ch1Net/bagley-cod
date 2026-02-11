@@ -1,0 +1,19 @@
+{
+  "id": "pass-dictionary-001",
+  "title": "Wordlist Warrior",
+  "category": "password-cracking",
+  "difficulty": "easy",
+  "points": 150,
+  "description": "You need to perform a dictionary attack on a hash. What is the full path to the most famous password wordlist included in Kali Linux?\n\nThis wordlist was compiled from the RockYou data breach of 2009 and contains ~14 million passwords.\n\nSubmit as: flag{full_path}",
+  "flag": "flag{/usr/share/wordlists/rockyou.txt}",
+  "hints": [
+    "It's in /usr/share/wordlists/",
+    "Named after the company that was breached",
+    "The file might need to be extracted from .gz first"
+  ],
+  "resources": [
+    "https://www.kali.org/tools/wordlists/",
+    "https://en.wikipedia.org/wiki/RockYou#Data_breach"
+  ],
+  "ncl_category": "Password Cracking"
+}

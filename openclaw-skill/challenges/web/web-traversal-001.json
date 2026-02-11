@@ -1,0 +1,19 @@
+{
+  "id": "web-traversal-001",
+  "title": "Path Traversal",
+  "category": "web",
+  "difficulty": "medium",
+  "points": 200,
+  "description": "A web application serves files using this URL pattern:\n\nhttps://example.com/view?file=report.pdf\n\nThe server code:\n```php\n$file = $_GET['file'];\nreadfile(\"/var/www/uploads/\" . $file);\n```\n\nCraft a path traversal payload to read /etc/passwd. How many directories do you need to go up from /var/www/uploads/ to reach the root (/)?\n\nSubmit the payload: flag{payload} (just the file parameter value)",
+  "flag": "flag{../../../etc/passwd}",
+  "hints": [
+    "From /var/www/uploads/, you need to go up 3 directories to reach /",
+    "Each ../ goes up one directory: uploads → www → var → /",
+    "Then append etc/passwd to read the target file"
+  ],
+  "resources": [
+    "https://owasp.org/www-community/attacks/Path_Traversal",
+    "https://portswigger.net/web-security/file-path-traversal"
+  ],
+  "ncl_category": "Web Application Exploitation"
+}

@@ -1,0 +1,19 @@
+{
+  "id": "osint-geolocation-001",
+  "title": "Where in the World?",
+  "category": "osint",
+  "difficulty": "medium",
+  "points": 250,
+  "description": "A photo was posted online by a suspect. Running exiftool reveals these GPS coordinates:\n\nGPS Latitude: 48 deg 51' 29.88\" N\nGPS Longitude: 2 deg 17' 40.20\" E\n\nWhat famous landmark is at these coordinates?\n\nSubmit as: flag{landmark_name} (lowercase, underscores for spaces)",
+  "flag": "flag{eiffel_tower}",
+  "hints": [
+    "Convert DMS coordinates to decimal: Lat ≈ 48.858, Lon ≈ 2.294",
+    "Paste the decimal coordinates into Google Maps",
+    "This is one of the most visited landmarks in the world, located in Paris"
+  ],
+  "resources": [
+    "https://www.gps-coordinates.net/",
+    "https://exiftool.org/"
+  ],
+  "ncl_category": "Open Source Intelligence"
+}

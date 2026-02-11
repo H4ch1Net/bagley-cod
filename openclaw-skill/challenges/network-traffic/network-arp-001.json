@@ -1,0 +1,19 @@
+{
+  "id": "network-arp-001",
+  "title": "ARP Spoofing Detection",
+  "category": "network-traffic",
+  "difficulty": "medium",
+  "points": 250,
+  "description": "Review this ARP table from a network capture:\n\n? (192.168.1.1) at aa:bb:cc:dd:ee:01 on eth0\n? (192.168.1.1) at aa:bb:cc:dd:ee:99 on eth0\n? (192.168.1.50) at aa:bb:cc:dd:ee:50 on eth0\n? (192.168.1.100) at aa:bb:cc:dd:ee:99 on eth0\n\nNotice that two different IPs share the same MAC address (aa:bb:cc:dd:ee:99). This indicates an ARP spoofing attack.\n\nWhich IP is the attacker impersonating (the gateway)?\n\nSubmit as: flag{ip_address}",
+  "flag": "flag{192.168.1.1}",
+  "hints": [
+    "In ARP spoofing, the attacker sends fake ARP replies to associate their MAC with another IP",
+    "MAC aa:bb:cc:dd:ee:99 is claimed by both 192.168.1.1 and 192.168.1.100",
+    "The attacker (192.168.1.100) is impersonating the gateway (192.168.1.1) to intercept traffic"
+  ],
+  "resources": [
+    "https://en.wikipedia.org/wiki/ARP_spoofing",
+    "https://www.varonis.com/blog/arp-poisoning"
+  ],
+  "ncl_category": "Network Traffic Analysis"
+}

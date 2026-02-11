@@ -1,0 +1,19 @@
+{
+  "id": "enum-service-001",
+  "title": "Vulnerable Service",
+  "category": "enumeration",
+  "difficulty": "hard",
+  "points": 400,
+  "description": "After scanning a target, you find this service:\n\n445/tcp open  microsoft-ds  Windows Server 2008 R2\n\nYou suspect this system is vulnerable to a famous SMB exploit used by the WannaCry ransomware in 2017. This exploit targets a vulnerability in SMBv1.\n\nWhat is the common name of this exploit (NSA codename)?\n\nSubmit as: flag{exploit_name} (camelCase as commonly written)",
+  "flag": "flag{EternalBlue}",
+  "hints": [
+    "This exploit was leaked by the Shadow Brokers group in 2017",
+    "It targets MS17-010 vulnerability in Windows SMB",
+    "The name suggests something that lasts forever and is a color"
+  ],
+  "resources": [
+    "https://en.wikipedia.org/wiki/EternalBlue",
+    "https://www.rapid7.com/db/modules/exploit/windows/smb/ms17_010_eternalblue/"
+  ],
+  "ncl_category": "Enumeration & Exploitation"
+}

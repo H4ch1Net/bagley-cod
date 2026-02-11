@@ -1,0 +1,19 @@
+{
+  "id": "network-protocol-001",
+  "title": "Protocol Identifier",
+  "category": "network-traffic",
+  "difficulty": "easy",
+  "points": 100,
+  "description": "Match these well-known port numbers to their protocols:\n\n- Port 53: ___\n- Port 443: ___\n- Port 3389: ___\n- Port 445: ___\n\nWhat protocol runs on port 445?\n\nSubmit as: flag{protocol_abbreviation} (uppercase)",
+  "flag": "flag{SMB}",
+  "hints": [
+    "Port 445 is used for Windows file sharing",
+    "This protocol was exploited by EternalBlue/WannaCry",
+    "Server Message Block"
+  ],
+  "resources": [
+    "https://www.iana.org/assignments/service-names-port-numbers/",
+    "https://en.wikipedia.org/wiki/Server_Message_Block"
+  ],
+  "ncl_category": "Network Traffic Analysis"
+}

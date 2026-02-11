@@ -1,0 +1,19 @@
+{
+  "id": "crypto-vigenere-001",
+  "title": "Vigenère's Legacy",
+  "category": "cryptography",
+  "difficulty": "hard",
+  "points": 400,
+  "description": "The following ciphertext was encrypted using a Vigenère cipher with the key 'CYBER':\n\nhmef{xljiqzvi_ku_nqn_dtecsqj}\n\nDecrypt it to find the flag.\n\nNote: Only alphabetic characters are encrypted; symbols and numbers are unchanged.",
+  "flag": "flag{vigenere_is_not_brokenl}",
+  "hints": [
+    "Vigenère uses a repeating key to shift each letter differently",
+    "To decrypt: subtract each key letter from the cipher letter (mod 26)",
+    "Key CYBER = shifts of [2,24,1,4,17] — apply in sequence, skipping non-alpha chars"
+  ],
+  "resources": [
+    "https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher",
+    "https://www.dcode.fr/vigenere-cipher"
+  ],
+  "ncl_category": "Cryptography"
+}

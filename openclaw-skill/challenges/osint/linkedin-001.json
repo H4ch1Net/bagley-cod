@@ -1,0 +1,17 @@
+{
+  "id": "osint-002",
+  "title": "LinkedIn Recon",
+  "category": "osint",
+  "difficulty": "medium",
+  "points": 200,
+  "description": "A fictional company called 'CyberVault Solutions' recently posted a job for a 'Senior Penetration Tester'. The posting mentions a specific certification as required. What OSINT technique would you use to find the hiring manager's name?\n\nSubmit the name of the technique as: flag{technique_name}",
+  "flag": "flag{social_media_profiling}",
+  "hints": [
+    "Think about how LinkedIn connections work",
+    "Who typically posts job listings?",
+    "The technique involves building a profile from social media"
+  ],
+  "resources": [
+    "https://www.sans.org/blog/what-is-open-source-intelligence/"
+  ]
+}

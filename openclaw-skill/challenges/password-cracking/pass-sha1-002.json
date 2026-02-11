@@ -1,0 +1,19 @@
+{
+  "id": "pass-sha1-002",
+  "title": "SHA-1 Cracker",
+  "category": "password-cracking",
+  "difficulty": "easy",
+  "points": 125,
+  "description": "Crack this SHA-1 hash:\n\na94a8fe5ccb19ba61c4c0873d391e987982fbbd3\n\nSubmit as: flag{plaintext}",
+  "flag": "flag{test}",
+  "hints": [
+    "This is one of the simplest possible passwords",
+    "4 lowercase letters",
+    "Developers often use this as placeholder text"
+  ],
+  "resources": [
+    "https://crackstation.net/",
+    "https://www.openwall.com/john/"
+  ],
+  "ncl_category": "Password Cracking"
+}

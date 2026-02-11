@@ -1,0 +1,19 @@
+{
+  "id": "pass-format-001",
+  "title": "Hash Type Identification",
+  "category": "password-cracking",
+  "difficulty": "easy",
+  "points": 100,
+  "description": "Match each hash to its algorithm:\n\nHash A: 5d41402abc4b2a76b9719d911017c592 (32 hex chars)\nHash B: aaf4c61ddcc5e8a2dabede0f3b482cd9aea9434d (40 hex chars)\nHash C: 2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824 (64 hex chars)\n\nWhat algorithm produced Hash C?\n\nSubmit as: flag{algorithm} (lowercase, with hyphen if applicable)",
+  "flag": "flag{sha-256}",
+  "hints": [
+    "Hash length is a key indicator: MD5=32, SHA-1=40, SHA-256=64 hex chars",
+    "Hash C is 64 hex characters = 256 bits",
+    "This is the SHA-2 family member with 256-bit output"
+  ],
+  "resources": [
+    "https://hashcat.net/wiki/doku.php?id=example_hashes",
+    "https://www.tunnelsup.com/hash-analyzer/"
+  ],
+  "ncl_category": "Password Cracking"
+}

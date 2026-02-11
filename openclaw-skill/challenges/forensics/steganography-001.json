@@ -1,0 +1,18 @@
+{
+  "id": "forensics-002",
+  "title": "Invisible Ink",
+  "category": "forensics",
+  "difficulty": "medium",
+  "points": 200,
+  "description": "A suspicious PNG image was intercepted. Running `binwalk image.png` reveals a hidden ZIP archive embedded after the PNG data. Inside the ZIP is a file called `secret.txt`.\n\nThe contents of secret.txt are: flag{steg_is_sneaky}\n\nWhat tool did you use to discover the hidden file?",
+  "flag": "flag{steg_is_sneaky}",
+  "hints": [
+    "The tool scans for embedded files and signatures",
+    "It starts with 'bin'",
+    "binwalk can extract embedded data with -e flag"
+  ],
+  "resources": [
+    "https://github.com/ReFirmLabs/binwalk",
+    "https://en.wikipedia.org/wiki/Steganography"
+  ]
+}

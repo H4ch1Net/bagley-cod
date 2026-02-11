@@ -1,0 +1,19 @@
+{
+  "id": "forensics-registry-001",
+  "title": "Registry Persistence",
+  "category": "forensics",
+  "difficulty": "hard",
+  "points": 400,
+  "description": "During a forensic analysis of a Windows system, you find this registry entry:\n\nKey: HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\nValue: SecurityUpdate\nData: C:\\Users\\Public\\svchost.exe\n\nThe real svchost.exe lives in C:\\Windows\\System32\\. This entry is a persistence mechanism.\n\nWhat is the common name for this malware technique of adding entries to the Run key to survive reboots?\n\nSubmit as: flag{technique_name} (lowercase, underscores)",
+  "flag": "flag{registry_run_key_persistence}",
+  "hints": [
+    "The Run key executes programs automatically at user login",
+    "MITRE ATT&CK tracks this as technique T1547.001",
+    "The technique name combines the registry location with the goal (persistence)"
+  ],
+  "resources": [
+    "https://attack.mitre.org/techniques/T1547/001/",
+    "https://learn.microsoft.com/en-us/windows/win32/setupapi/run-and-runonce-registry-keys"
+  ],
+  "ncl_category": "Forensics"
+}

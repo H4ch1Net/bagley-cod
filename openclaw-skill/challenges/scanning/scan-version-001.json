@@ -1,0 +1,19 @@
+{
+  "id": "scan-version-001",
+  "title": "Version Vulnerable",
+  "category": "scanning",
+  "difficulty": "medium",
+  "points": 200,
+  "description": "An nmap version scan (-sV) reveals this service:\n\n21/tcp open ftp vsftpd 2.3.4\n\nThis specific version of vsftpd contains a famous backdoor that was inserted by an attacker into the source code. When a username ending in ':)' (smiley face) is sent, it opens a shell on port 6200.\n\nWhat is the CVE identifier for this backdoor?\n\nSubmit as: flag{CVE-YYYY-NNNN}",
+  "flag": "flag{CVE-2011-2523}",
+  "hints": [
+    "Search 'vsftpd 2.3.4 backdoor' to find the CVE",
+    "This vulnerability was discovered in July 2011",
+    "It's one of the most famous supply chain attacks in open source history"
+  ],
+  "resources": [
+    "https://nvd.nist.gov/vuln/detail/CVE-2011-2523",
+    "https://www.rapid7.com/db/modules/exploit/unix/ftp/vsftpd_234_backdoor/"
+  ],
+  "ncl_category": "Scanning & Reconnaissance"
+}

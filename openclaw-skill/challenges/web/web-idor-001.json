@@ -1,0 +1,19 @@
+{
+  "id": "web-idor-001",
+  "title": "Insecure Direct Object Reference",
+  "category": "web",
+  "difficulty": "easy",
+  "points": 150,
+  "description": "You're logged in as user ID 1001. Your profile URL is:\n\nhttps://example.com/api/user/1001/profile\n\nYou notice the URL contains your user ID. By changing it to another number, you can view other users' profiles:\n\nhttps://example.com/api/user/1000/profile\n\nThis returns the admin's profile with sensitive data.\n\nWhat is this vulnerability class called? (OWASP abbreviation, 4 letters)\n\nSubmit as: flag{abbreviation}",
+  "flag": "flag{IDOR}",
+  "hints": [
+    "The application uses a direct reference (user ID) in the URL without authorization checks",
+    "This is an access control vulnerability where you reference objects directly",
+    "IDOR = Insecure Direct Object Reference"
+  ],
+  "resources": [
+    "https://portswigger.net/web-security/access-control/idor",
+    "https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/05-Authorization_Testing/04-Testing_for_Insecure_Direct_Object_References"
+  ],
+  "ncl_category": "Web Application Exploitation"
+}

@@ -1,0 +1,19 @@
+{
+  "id": "forensics-memory-001",
+  "title": "RAM Dump Analysis",
+  "category": "forensics",
+  "difficulty": "hard",
+  "points": 450,
+  "description": "You're analyzing a Windows memory dump using Volatility 3. To find running processes, you use:\n\n$ python3 vol.py -f memory.dmp windows.pslist\n\nThe output shows a suspicious process:\n\nPID    PPID   Name              CreateTime\n4      0      System            2026-01-15 10:00:00\n588    4      smss.exe          2026-01-15 10:00:01\n1337   588    nc.exe            2026-01-15 14:22:33\n2048   1024   explorer.exe      2026-01-15 10:01:00\n\nWhich process is suspicious, and what is its PID?\n\nSubmit as: flag{process_name_pid} (e.g., flag{cmd.exe_1234})",
+  "flag": "flag{nc.exe_1337}",
+  "hints": [
+    "nc.exe is netcat — a networking utility often used for reverse shells",
+    "PID 1337 (leet) is a red flag, and nc.exe shouldn't be spawned by smss.exe",
+    "Legitimate Windows processes are System, smss.exe, explorer.exe — nc.exe is not standard"
+  ],
+  "resources": [
+    "https://volatility3.readthedocs.io/",
+    "https://www.sans.org/blog/the-importance-of-command-and-process-auditing/"
+  ],
+  "ncl_category": "Forensics"
+}

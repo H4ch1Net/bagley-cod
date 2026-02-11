@@ -1,0 +1,19 @@
+{
+  "id": "osint-image-001",
+  "title": "Reverse Image Hunt",
+  "category": "osint",
+  "difficulty": "easy",
+  "points": 150,
+  "description": "You receive an image of a landmark building during an investigation. What Google service allows you to upload an image and find visually similar images and web pages where it appears?\n\nSubmit the name of the service as: flag{service_name} (lowercase, underscores for spaces)",
+  "flag": "flag{google_lens}",
+  "hints": [
+    "Google offers a visual search tool",
+    "You can access it by clicking the camera icon in Google search",
+    "Previously known as 'Google Reverse Image Search', now integrated into a newer tool"
+  ],
+  "resources": [
+    "https://lens.google/",
+    "https://tineye.com/"
+  ],
+  "ncl_category": "Open Source Intelligence"
+}

@@ -1,0 +1,19 @@
+{
+  "id": "logs-firewall-001",
+  "title": "Firewall Detective",
+  "category": "log-analysis",
+  "difficulty": "medium",
+  "points": 200,
+  "description": "Review these iptables firewall log entries. What destination port was the attacker scanning that got BLOCKED?\n\n[FIREWALL-ALLOW] IN=eth0 SRC=192.168.1.100 DST=10.0.0.5 PROTO=TCP SPT=44321 DPT=80 ACK\n[FIREWALL-ALLOW] IN=eth0 SRC=192.168.1.100 DST=10.0.0.5 PROTO=TCP SPT=44322 DPT=443 ACK\n[FIREWALL-DROP] IN=eth0 SRC=10.10.14.99 DST=10.0.0.5 PROTO=TCP SPT=55123 DPT=3389 SYN\n[FIREWALL-DROP] IN=eth0 SRC=10.10.14.99 DST=10.0.0.5 PROTO=TCP SPT=55124 DPT=22 SYN\n[FIREWALL-ALLOW] IN=eth0 SRC=192.168.1.100 DST=10.0.0.5 PROTO=TCP SPT=44323 DPT=80 ACK\n\nWhich service was the attacker (10.10.14.99) trying to reach on DPT=3389?\n\nSubmit as: flag{service_name} (lowercase, full protocol name)",
+  "flag": "flag{remote_desktop_protocol}",
+  "hints": [
+    "DPT=3389 is a well-known Windows service port",
+    "This protocol allows remote graphical access to a computer",
+    "RDP = Remote Desktop Protocol"
+  ],
+  "resources": [
+    "https://www.iana.org/assignments/service-names-port-numbers/",
+    "https://linux.die.net/man/8/iptables"
+  ],
+  "ncl_category": "Log Analysis"
+}

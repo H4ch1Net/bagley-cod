@@ -1,0 +1,19 @@
+{
+  "id": "enum-snmp-001",
+  "title": "SNMP Community String",
+  "category": "enumeration",
+  "difficulty": "medium",
+  "points": 250,
+  "description": "You discover SNMP (port 161/UDP) is open on a network device. You attempt to query it using common community strings:\n\n$ snmpwalk -v2c -c public 192.168.1.1\nSNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, 2800 Series\nSNMPv2-MIB::sysName.0 = STRING: core-router-01\n...\n\nThe community string 'public' gave you read access. This is a serious misconfiguration.\n\nWhat is the default SNMP community string for WRITE access (which would let you modify the device configuration)?\n\nSubmit as: flag{community_string}",
+  "flag": "flag{private}",
+  "hints": [
+    "SNMP has two default community strings: one for read, one for write",
+    "The read-only default is 'public'",
+    "The read-write default is the opposite of 'public'"
+  ],
+  "resources": [
+    "https://book.hacktricks.xyz/network-services-pentesting/pentesting-snmp",
+    "https://en.wikipedia.org/wiki/Simple_Network_Management_Protocol"
+  ],
+  "ncl_category": "Enumeration & Exploitation"
+}

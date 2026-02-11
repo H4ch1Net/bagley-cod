@@ -1,0 +1,19 @@
+{
+  "id": "crypto-substitution-001",
+  "title": "Letter Swap",
+  "category": "cryptography",
+  "difficulty": "medium",
+  "points": 250,
+  "description": "This message uses a simple substitution cipher where each letter maps to another:\n\nUsvt: gszh{uivjfvmxb_zmzobhrh_drmh}\n\nThe most common letter in English is 'E'. In this ciphertext, 'v' appears most frequently.\n\nCrack the cipher to find the flag.",
+  "flag": "flag{frequency_analysis_wins}",
+  "hints": [
+    "If v=e, look at the structure: gszh{...} looks like flag{...}",
+    "Map g→f, s→l, z→a, h→g to get 'flag' — now you have 5 letter mappings",
+    "Use frequency analysis and known plaintext patterns to map the rest"
+  ],
+  "resources": [
+    "https://en.wikipedia.org/wiki/Substitution_cipher",
+    "https://quipqiup.com/"
+  ],
+  "ncl_category": "Cryptography"
+}

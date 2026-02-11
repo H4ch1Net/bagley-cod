@@ -1,0 +1,19 @@
+{
+  "id": "logs-apache-001",
+  "title": "Web Server Breach",
+  "category": "log-analysis",
+  "difficulty": "medium",
+  "points": 200,
+  "description": "Analyze this Apache access log. Which IP address successfully exploited a SQL injection vulnerability?\n\n192.168.1.50 - - [01/Jan/2026:10:15:32 +0000] \"GET /search.php?q=test HTTP/1.1\" 200 1542\n10.0.0.45 - - [01/Jan/2026:10:16:01 +0000] \"GET /search.php?q=' OR '1'='1 HTTP/1.1\" 200 8924\n172.16.0.100 - - [01/Jan/2026:10:16:22 +0000] \"GET /admin.php HTTP/1.1\" 403 287\n10.0.0.45 - - [01/Jan/2026:10:16:45 +0000] \"GET /search.php?q=' UNION SELECT username,password FROM users-- HTTP/1.1\" 200 15673\n192.168.1.50 - - [01/Jan/2026:10:17:01 +0000] \"GET /index.php HTTP/1.1\" 200 3421\n\nSubmit as: flag{ip_address}",
+  "flag": "flag{10.0.0.45}",
+  "hints": [
+    "Look for SQL injection patterns in query parameters (quotes, OR, UNION)",
+    "The attacker made multiple SQLi attempts — both returned 200 OK",
+    "A 200 response code with much larger size (15673) suggests data was extracted"
+  ],
+  "resources": [
+    "https://owasp.org/www-community/attacks/SQL_Injection",
+    "https://httpd.apache.org/docs/2.4/logs.html"
+  ],
+  "ncl_category": "Log Analysis"
+}

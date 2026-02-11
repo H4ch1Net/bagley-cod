@@ -1,0 +1,19 @@
+{
+  "id": "scan-nmap-001",
+  "title": "Port Discovery",
+  "category": "scanning",
+  "difficulty": "easy",
+  "points": 100,
+  "description": "Analyze this nmap scan output. How many TCP ports are in the OPEN state?\n\nPORT      STATE    SERVICE        VERSION\n22/tcp    open     ssh            OpenSSH 8.9p1\n80/tcp    open     http           Apache httpd 2.4.52\n443/tcp   open     https          Apache httpd 2.4.52\n3306/tcp  closed   mysql\n5432/tcp  filtered postgresql\n8080/tcp  open     http-proxy     Squid 5.2\n8443/tcp  filtered https-alt\n\nSubmit as: flag{number}",
+  "flag": "flag{4}",
+  "hints": [
+    "Count only ports with STATE = 'open'",
+    "'closed' means the port responded but no service is listening",
+    "'filtered' means a firewall blocked the probe — neither counts as open"
+  ],
+  "resources": [
+    "https://nmap.org/book/man-port-scanning-basics.html",
+    "https://nmap.org/book/man-port-scanning-techniques.html"
+  ],
+  "ncl_category": "Scanning & Reconnaissance"
+}

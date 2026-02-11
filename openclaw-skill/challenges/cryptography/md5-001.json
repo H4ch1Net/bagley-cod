@@ -1,0 +1,18 @@
+{
+  "id": "crypto-003",
+  "title": "Hash Identification",
+  "category": "cryptography",
+  "difficulty": "easy",
+  "points": 100,
+  "description": "Identify and crack this hash: 098f6bcd4621d373cade4e832627b4f6\n\nWhat is the original plaintext? Submit as flag{plaintext}.",
+  "flag": "flag{test}",
+  "hints": [
+    "What kind of hash is 32 hex characters long?",
+    "It's a very common 4-letter word",
+    "Try an online hash lookup"
+  ],
+  "resources": [
+    "https://crackstation.net",
+    "https://en.wikipedia.org/wiki/MD5"
+  ]
+}

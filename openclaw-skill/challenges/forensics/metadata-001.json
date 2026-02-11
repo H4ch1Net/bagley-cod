@@ -1,0 +1,18 @@
+{
+  "id": "forensics-001",
+  "title": "Hidden in Plain Sight",
+  "category": "forensics",
+  "difficulty": "easy",
+  "points": 100,
+  "description": "You've been given an image file. When you run `exiftool photo.jpg`, you find this in the Comment field: 'ZmxhZ3ttZXRhZGF0YV9tYXR0ZXJzfQ=='\n\nWhat is the hidden flag?",
+  "flag": "flag{metadata_matters}",
+  "hints": [
+    "The comment looks encoded",
+    "Try base64 decoding",
+    "exiftool shows EXIF metadata"
+  ],
+  "resources": [
+    "https://exiftool.org",
+    "https://en.wikipedia.org/wiki/Exif"
+  ]
+}

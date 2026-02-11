@@ -1,0 +1,19 @@
+{
+  "id": "network-dns-001",
+  "title": "Suspicious DNS",
+  "category": "network-traffic",
+  "difficulty": "medium",
+  "points": 200,
+  "description": "Analyze these DNS queries captured from a workstation. One of them is suspicious:\n\nQuery: www.google.com → 142.250.80.46 (A record)\nQuery: mail.company.com → 10.0.0.25 (A record)\nQuery: aGFja2VkLmV2aWwuY29t.dns-tunnel.attacker.net → 10.10.14.5 (A record)\nQuery: outlook.office365.com → 52.96.88.34 (A record)\nQuery: update.windows.com → 13.107.4.52 (A record)\n\nThe suspicious query uses a technique to exfiltrate data. What encoding is used in the subdomain?\n\nSubmit as: flag{encoding_type}",
+  "flag": "flag{base64}",
+  "hints": [
+    "One DNS query has an unusual-looking subdomain",
+    "The subdomain 'aGFja2VkLmV2aWwuY29t' looks encoded, not like a real hostname",
+    "Decode it from base64: aGFja2VkLmV2aWwuY29t = 'hacked.evil.com' — this is DNS tunneling"
+  ],
+  "resources": [
+    "https://en.wikipedia.org/wiki/DNS_tunneling",
+    "https://www.infoblox.com/dns-security-resource-center/dns-security-faq/what-is-dns-tunneling/"
+  ],
+  "ncl_category": "Network Traffic Analysis"
+}

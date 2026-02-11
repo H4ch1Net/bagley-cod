@@ -1,0 +1,19 @@
+{
+  "id": "crypto-xor-001",
+  "title": "XOR Me Maybe",
+  "category": "cryptography",
+  "difficulty": "medium",
+  "points": 250,
+  "description": "The following hex string was XOR-encrypted with the repeating key 'NCL':\n\n22292c227b1c2d3a2a7e1c363a213a3b31362e377e\n\nDecrypt it to find the flag.\n\nHint: XOR each byte of the ciphertext with the corresponding byte of the repeating key.",
+  "flag": "flag{xor_is_reversible}",
+  "hints": [
+    "XOR encryption uses the same operation for both encryption and decryption",
+    "Key 'NCL' = bytes [0x4E, 0x43, 0x4C], repeat it to match ciphertext length",
+    "Python: bytes([c ^ key[i % len(key)] for i, c in enumerate(ciphertext)])"
+  ],
+  "resources": [
+    "https://en.wikipedia.org/wiki/XOR_cipher",
+    "https://gchq.github.io/CyberChef/#recipe=From_Hex('Auto')XOR(%7B'option':'UTF8','string':'NCL'%7D,'Standard',false)"
+  ],
+  "ncl_category": "Cryptography"
+}

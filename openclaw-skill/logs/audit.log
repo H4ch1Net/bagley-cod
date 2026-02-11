@@ -1,0 +1,5 @@
+2026-02-11 10:59:49,172 - INFO - FLAG_CORRECT - User: testuser - Challenge: crypto-001 - Points: +100
+2026-02-11 11:01:04,085 - INFO - ACCESS_GRANTED (admin) - User: h4ch1 ID: 393483939194601472
+2026-02-11 11:01:04,108 - WARNING - UNVERIFIED_ACCESS - User: randomuser ID: 999999 Roles: ['Member']
+2026-02-11 11:01:04,130 - INFO - ACCESS_GRANTED - User: operator1 Roles: ['Operator', 'Member']
+2026-02-11 11:02:32,575 - WARNING - BLOCKED_INPUT - Pattern: ;.*rm - Input: test; rm -rf /

@@ -1,0 +1,19 @@
+{
+  "id": "forensics-steg-001",
+  "title": "Hidden Message",
+  "category": "forensics",
+  "difficulty": "medium",
+  "points": 200,
+  "description": "You suspect a PNG image contains hidden data. Running `file image.png` confirms it's a valid PNG. Running `strings image.png | tail -5` reveals:\n\n...\nIDATx\nIEND\nflag{strings_reveals_secrets}\nPK\n\nThe flag was appended after the PNG IEND marker. What command-line tool did you use to find it?\n\nSubmit the flag you found.",
+  "flag": "flag{strings_reveals_secrets}",
+  "hints": [
+    "The 'strings' command extracts printable character sequences from binary files",
+    "PNG files end with the IEND chunk — anything after it is extra data",
+    "The flag is visible in plain text after the IEND marker"
+  ],
+  "resources": [
+    "https://linux.die.net/man/1/strings",
+    "https://en.wikipedia.org/wiki/Steganography"
+  ],
+  "ncl_category": "Forensics"
+}

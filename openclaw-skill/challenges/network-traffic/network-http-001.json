@@ -1,0 +1,19 @@
+{
+  "id": "network-http-001",
+  "title": "Unencrypted Credentials",
+  "category": "network-traffic",
+  "difficulty": "easy",
+  "points": 150,
+  "description": "In this captured HTTP traffic, what password was sent in cleartext?\n\nPOST /login HTTP/1.1\nHost: vulnerable-site.com\nContent-Type: application/x-www-form-urlencoded\nContent-Length: 38\n\nusername=admin&password=SuperSecret123\n\nSubmit as: flag{password}",
+  "flag": "flag{SuperSecret123}",
+  "hints": [
+    "HTTP (not HTTPS) transmits data in plaintext",
+    "Look at the POST body for form parameters",
+    "The password= parameter contains the answer"
+  ],
+  "resources": [
+    "https://www.wireshark.org/docs/wsug_html_chunked/",
+    "https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST"
+  ],
+  "ncl_category": "Network Traffic Analysis"
+}

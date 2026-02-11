@@ -1,0 +1,19 @@
+{
+  "id": "crypto-base64-002",
+  "title": "Layered Encoding",
+  "category": "cryptography",
+  "difficulty": "easy",
+  "points": 125,
+  "description": "This string has been Base64-encoded THREE times:\n\nWm14aFozdGliSFZtWm1WeVgyUnZaWE5mYm05MFgyMWxZVzVmYzJWamRYSmxmUT09\n\nDecode all three layers to find the flag.",
+  "flag": "flag{buffer_does_not_mean_secure}",
+  "hints": [
+    "Decode it once with base64, then decode the result again, and again",
+    "Use: echo '<string>' | base64 -d | base64 -d | base64 -d",
+    "Or use CyberChef with three 'From Base64' operations chained"
+  ],
+  "resources": [
+    "https://gchq.github.io/CyberChef/",
+    "https://www.base64decode.org/"
+  ],
+  "ncl_category": "Cryptography"
+}

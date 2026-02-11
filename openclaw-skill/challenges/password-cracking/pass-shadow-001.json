@@ -1,0 +1,19 @@
+{
+  "id": "pass-shadow-001",
+  "title": "Shadow File Analysis",
+  "category": "password-cracking",
+  "difficulty": "medium",
+  "points": 200,
+  "description": "You've obtained a hash from /etc/shadow:\n\n$6$rounds=5000$saltsalt$Uf1D3G.KxR3l5BkYKrc4p0s5FmWYKFaqJXNMb0VVfJGFz9oR8E0S5V3s6B5PqZvPkW5q1T3XthYv7VDjCGxK61\n\nIdentify the hash type. The '$6$' prefix indicates which algorithm?\n\nSubmit as: flag{algorithm_name} (lowercase, full name)",
+  "flag": "flag{sha512crypt}",
+  "hints": [
+    "$1$ = MD5, $5$ = SHA-256, $6$ = ?",
+    "This is the strongest default hash type in Linux /etc/shadow",
+    "SHA-512 based crypt = sha512crypt"
+  ],
+  "resources": [
+    "https://hashcat.net/wiki/doku.php?id=example_hashes",
+    "https://man7.org/linux/man-pages/man3/crypt.3.html"
+  ],
+  "ncl_category": "Password Cracking"
+}

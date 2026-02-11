@@ -1,0 +1,19 @@
+{
+  "id": "enum-default-001",
+  "title": "Default Credentials",
+  "category": "enumeration",
+  "difficulty": "easy",
+  "points": 100,
+  "description": "You find a web-based management interface at http://192.168.1.1. The login page says 'Linksys Router Admin Panel'.\n\nMany network devices ship with factory default credentials that administrators forget to change.\n\nWhat is the classic default username:password combination for older Linksys routers?\n\nSubmit as: flag{username:password}",
+  "flag": "flag{admin:admin}",
+  "hints": [
+    "Many consumer routers use very simple default credentials",
+    "The username and password are often the same word",
+    "It's the most obvious admin credential you can think of"
+  ],
+  "resources": [
+    "https://www.defaultpassword.com/",
+    "https://cirt.net/passwords"
+  ],
+  "ncl_category": "Enumeration & Exploitation"
+}

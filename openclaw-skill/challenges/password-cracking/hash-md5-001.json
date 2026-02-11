@@ -1,0 +1,18 @@
+{
+  "id": "pass-001",
+  "title": "Crack the MD5 Hash",
+  "category": "password-cracking",
+  "difficulty": "easy",
+  "points": 100,
+  "description": "Crack this MD5 hash: 5f4dcc3b5aa765d61d8327deb882cf99\n\nSubmit the plaintext as flag{plaintext}.",
+  "flag": "flag{password}",
+  "hints": [
+    "Very common password — maybe the most common",
+    "Try an online rainbow table",
+    "The hash is unsalted"
+  ],
+  "resources": [
+    "https://crackstation.net",
+    "https://hashcat.net/hashcat/"
+  ]
+}

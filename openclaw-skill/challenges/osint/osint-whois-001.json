@@ -1,0 +1,19 @@
+{
+  "id": "osint-whois-001",
+  "title": "Domain Detective",
+  "category": "osint",
+  "difficulty": "easy",
+  "points": 100,
+  "description": "Perform a WHOIS lookup on the domain 'example.com'. According to the IANA WHOIS record, what organization is listed as the registrant?\n\nNote: example.com is a reserved domain managed by IANA for documentation purposes.\n\nSubmit as: flag{organization_name} (use underscores for spaces, lowercase)",
+  "flag": "flag{internet_assigned_numbers_authority}",
+  "hints": [
+    "Run: whois example.com",
+    "Look for the 'Registrant Organization' field",
+    "IANA stands for Internet Assigned Numbers Authority"
+  ],
+  "resources": [
+    "https://lookup.icann.org/",
+    "https://www.iana.org/domains/reserved"
+  ],
+  "ncl_category": "Open Source Intelligence"
+}

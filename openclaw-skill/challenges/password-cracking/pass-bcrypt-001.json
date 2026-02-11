@@ -1,0 +1,19 @@
+{
+  "id": "pass-bcrypt-001",
+  "title": "Bcrypt Identifier",
+  "category": "password-cracking",
+  "difficulty": "medium",
+  "points": 200,
+  "description": "Identify this hash format:\n\n$2b$12$LJ3m4ys8Lp5Uf5E0j1GUKO6YVfGDNOqLxoGq.HQg3zGHnR.EkJCe\n\nWhat hashing algorithm produced this hash?\n\nAdditionally, what does the '$12$' portion indicate?\n\nSubmit as: flag{algorithm_costfactor} (e.g., flag{md5_10})",
+  "flag": "flag{bcrypt_12}",
+  "hints": [
+    "The '$2b$' prefix identifies the algorithm",
+    "The number after it (12) is a work factor / cost parameter",
+    "This algorithm is designed to be intentionally slow for password storage"
+  ],
+  "resources": [
+    "https://en.wikipedia.org/wiki/Bcrypt",
+    "https://hashcat.net/wiki/doku.php?id=example_hashes"
+  ],
+  "ncl_category": "Password Cracking"
+}

@@ -1,0 +1,19 @@
+{
+  "id": "osint-username-001",
+  "title": "Username Correlator",
+  "category": "osint",
+  "difficulty": "medium",
+  "points": 250,
+  "description": "During an investigation, you discover a suspect uses the username 'darkphoenix_42' on one platform. You need to check if the same username exists on other social media platforms.\n\nWhat popular open-source Python tool checks for the existence of a username across 400+ social networks simultaneously?\n\nSubmit as: flag{tool_name} (lowercase)",
+  "flag": "flag{sherlock}",
+  "hints": [
+    "This tool is named after a famous fictional detective",
+    "It's available on GitHub and written in Python",
+    "Elementary, my dear Watson..."
+  ],
+  "resources": [
+    "https://github.com/sherlock-project/sherlock",
+    "https://whatsmyname.app/"
+  ],
+  "ncl_category": "Open Source Intelligence"
+}

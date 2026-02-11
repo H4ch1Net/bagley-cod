@@ -1,0 +1,19 @@
+{
+  "id": "osint-wayback-001",
+  "title": "Internet Time Machine",
+  "category": "osint",
+  "difficulty": "hard",
+  "points": 400,
+  "description": "A company recently redesigned their website to remove a page listing internal team members. However, the old version of the site was captured by an archival service.\n\nWhat is the base URL of the Wayback Machine's API endpoint that allows you to check if a URL has been archived? (The CDX Server API)\n\nSubmit as: flag{full_url} (no trailing slash)",
+  "flag": "flag{https://web.archive.org/cdx/search/cdx}",
+  "hints": [
+    "The Wayback Machine is run by the Internet Archive",
+    "They offer a CDX Server API for programmatic access",
+    "The API endpoint is at web.archive.org under the /cdx/ path"
+  ],
+  "resources": [
+    "https://web.archive.org/",
+    "https://github.com/internetarchive/wayback/tree/master/wayback-cdx-server"
+  ],
+  "ncl_category": "Open Source Intelligence"
+}

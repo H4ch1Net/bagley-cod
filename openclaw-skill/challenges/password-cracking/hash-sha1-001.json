@@ -1,0 +1,18 @@
+{
+  "id": "pass-002",
+  "title": "SHA1 Showdown",
+  "category": "password-cracking",
+  "difficulty": "easy",
+  "points": 125,
+  "description": "Crack this SHA-1 hash: 7c222fb2927d828af22f592134e8932480637c0d\n\nSubmit the plaintext as flag{plaintext}.",
+  "flag": "flag{12345678}",
+  "hints": [
+    "It's a numeric password",
+    "People love sequential digits",
+    "8 digits long"
+  ],
+  "resources": [
+    "https://crackstation.net",
+    "https://en.wikipedia.org/wiki/SHA-1"
+  ]
+}

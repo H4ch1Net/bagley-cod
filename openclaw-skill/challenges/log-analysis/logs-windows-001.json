@@ -1,0 +1,19 @@
+{
+  "id": "logs-windows-001",
+  "title": "Windows Event Analysis",
+  "category": "log-analysis",
+  "difficulty": "medium",
+  "points": 250,
+  "description": "A Windows Security Event Log shows these entries:\n\nEvent ID: 4625 | Logon Type: 10 | Account: Administrator | Source IP: 10.10.14.50 | Time: 09:01:00\nEvent ID: 4625 | Logon Type: 10 | Account: Administrator | Source IP: 10.10.14.50 | Time: 09:01:02\nEvent ID: 4625 | Logon Type: 10 | Account: Administrator | Source IP: 10.10.14.50 | Time: 09:01:04\nEvent ID: 4624 | Logon Type: 10 | Account: Administrator | Source IP: 10.10.14.50 | Time: 09:01:06\nEvent ID: 4672 | Account: Administrator | Time: 09:01:06\n\nEvent ID 4625 = Failed logon, 4624 = Successful logon, 4672 = Special privileges assigned.\nLogon Type 10 = RemoteInteractive (RDP).\n\nWhat happened here? How many failed attempts preceded the successful login?\n\nSubmit as: flag{number}",
+  "flag": "flag{3}",
+  "hints": [
+    "Count the 4625 (failed) events before the 4624 (success)",
+    "Three failures then a success suggests a brute force or password guessing",
+    "The 4672 event means the account has admin privileges"
+  ],
+  "resources": [
+    "https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4625",
+    "https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/"
+  ],
+  "ncl_category": "Log Analysis"
+}

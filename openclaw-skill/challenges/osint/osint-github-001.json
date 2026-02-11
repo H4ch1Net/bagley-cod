@@ -1,0 +1,19 @@
+{
+  "id": "osint-github-001",
+  "title": "GitHub Secrets",
+  "category": "osint",
+  "difficulty": "medium",
+  "points": 200,
+  "description": "A developer accidentally committed sensitive data to a public GitHub repository. The repository 'secureapp-demo' owned by user 'codealert' had an API key pushed in an early commit, then removed in a later one.\n\nWhat git command would you use to search through ALL commit history for strings matching 'API_KEY'?\n\nSubmit as: flag{git_command_name}",
+  "flag": "flag{git_log_-S}",
+  "hints": [
+    "Check the full commit history, not just current files",
+    "There's a git command that searches diffs for string additions/deletions",
+    "The -S flag (pickaxe) searches for changes to a string across history"
+  ],
+  "resources": [
+    "https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository",
+    "https://git-scm.com/docs/git-log#Documentation/git-log.txt--Sltstringgt"
+  ],
+  "ncl_category": "Open Source Intelligence"
+}

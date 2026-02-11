@@ -1,0 +1,19 @@
+{
+  "id": "osint-linkedin-001",
+  "title": "LinkedIn Recon",
+  "category": "osint",
+  "difficulty": "medium",
+  "points": 200,
+  "description": "During a penetration test, you need to identify employees at the target company. You discover a LinkedIn job posting from 'CyberVault Solutions' requiring a 'CISSP' certification for a Senior Security Engineer role.\n\nWhat OSINT technique involves gathering profile data, connections, and activity patterns from professional networking sites to map an organization's structure?\n\nSubmit as: flag{technique_name_using_underscores}",
+  "flag": "flag{social_media_profiling}",
+  "hints": [
+    "This technique builds intelligence from social media platforms",
+    "It involves creating a profile of the target from their online presence",
+    "The answer combines 'social media' with the act of building a detailed profile"
+  ],
+  "resources": [
+    "https://www.sans.org/blog/what-is-open-source-intelligence/",
+    "https://osintframework.com/"
+  ],
+  "ncl_category": "Open Source Intelligence"
+}

@@ -1,0 +1,19 @@
+{
+  "id": "forensics-carving-001",
+  "title": "Deleted But Not Gone",
+  "category": "forensics",
+  "difficulty": "hard",
+  "points": 400,
+  "description": "A forensic image of a USB drive was acquired. The suspect deleted important files, but the data still exists on the disk.\n\nWhat tool, available in Kali Linux, can recover deleted files by searching for known file headers (magic bytes) in a raw disk image?\n\nThis tool's name means 'most important' or 'first in rank'.\n\nSubmit as: flag{tool_name} (lowercase)",
+  "flag": "flag{foremost}",
+  "hints": [
+    "This tool performs file carving based on headers, footers, and data structures",
+    "It was originally developed by the US Air Force OSI",
+    "The name is a synonym for 'primary' or 'chief'"
+  ],
+  "resources": [
+    "https://github.com/korczis/foremost",
+    "https://www.kali.org/tools/foremost/"
+  ],
+  "ncl_category": "Forensics"
+}

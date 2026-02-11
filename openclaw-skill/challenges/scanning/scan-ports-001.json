@@ -1,0 +1,19 @@
+{
+  "id": "scan-ports-001",
+  "title": "Nmap Flags",
+  "category": "scanning",
+  "difficulty": "easy",
+  "points": 100,
+  "description": "Match these nmap flags to their function:\n\n-sS : SYN scan (stealth)\n-sV : Version detection\n-sC : Default scripts\n-O  : OS detection\n-A  : Aggressive (combines -sV -sC -O --traceroute)\n-p- : Scan all 65535 ports\n\nWhat nmap flag would you use to scan ALL TCP ports (not just the top 1000)?\n\nSubmit as: flag{nmap_flag} (include the dash)",
+  "flag": "flag{-p-}",
+  "hints": [
+    "By default, nmap only scans the top 1000 most common ports",
+    "The -p flag specifies port ranges, and a special shorthand scans all ports",
+    "-p- is equivalent to -p 1-65535"
+  ],
+  "resources": [
+    "https://nmap.org/book/man-port-specification.html",
+    "https://nmap.org/book/man.html"
+  ],
+  "ncl_category": "Scanning & Reconnaissance"
+}

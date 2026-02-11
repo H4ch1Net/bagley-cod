@@ -1,0 +1,19 @@
+{
+  "id": "osint-email-001",
+  "title": "Corporate Contact",
+  "category": "osint",
+  "difficulty": "easy",
+  "points": 100,
+  "description": "You've been hired to perform recon on a target organization. Using only publicly available information, find the IT support email address for College of the Desert.\n\nSubmit the email as: flag{email@domain.edu}",
+  "flag": "flag{itsupport@collegeofthedesert.edu}",
+  "hints": [
+    "Check the official website's Contact or IT department page",
+    "Look for a 'Technology Services' or 'Help Desk' section",
+    "University websites often list departmental emails publicly"
+  ],
+  "resources": [
+    "https://www.collegeofthedesert.edu",
+    "https://osintframework.com/"
+  ],
+  "ncl_category": "Open Source Intelligence"
+}

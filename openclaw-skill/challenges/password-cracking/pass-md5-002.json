@@ -1,0 +1,19 @@
+{
+  "id": "pass-md5-002",
+  "title": "Common Password Hash",
+  "category": "password-cracking",
+  "difficulty": "easy",
+  "points": 100,
+  "description": "Crack this MD5 hash:\n\ne10adc3949ba59abbe56e057f20f883e\n\nThis is one of the most commonly used passwords worldwide.\n\nSubmit as: flag{plaintext}",
+  "flag": "flag{123456}",
+  "hints": [
+    "This password appears in almost every data breach",
+    "It's a simple numeric sequence",
+    "The most common password of all time — 6 digits, starting from 1"
+  ],
+  "resources": [
+    "https://crackstation.net/",
+    "https://hashcat.net/wiki/doku.php?id=example_hashes"
+  ],
+  "ncl_category": "Password Cracking"
+}

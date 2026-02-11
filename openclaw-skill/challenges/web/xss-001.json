@@ -1,0 +1,18 @@
+{
+  "id": "web-002",
+  "title": "Alert! Alert!",
+  "category": "web",
+  "difficulty": "easy",
+  "points": 125,
+  "description": "A search page reflects your input directly in the HTML without sanitization:\n\n```html\n<p>You searched for: USER_INPUT_HERE</p>\n```\n\nCraft an XSS payload that pops an alert box showing 'XSS'.\n\nSubmit the payload as: flag{your_payload}",
+  "flag": "flag{<script>alert('XSS')</script>}",
+  "hints": [
+    "You need to inject HTML/JavaScript",
+    "The classic XSS payload uses <script> tags",
+    "alert() is a JavaScript function"
+  ],
+  "resources": [
+    "https://owasp.org/www-community/attacks/xss/",
+    "https://portswigger.net/web-security/cross-site-scripting"
+  ]
+}

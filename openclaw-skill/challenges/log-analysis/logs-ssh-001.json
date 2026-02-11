@@ -1,0 +1,19 @@
+{
+  "id": "logs-ssh-001",
+  "title": "Brute Force Attack",
+  "category": "log-analysis",
+  "difficulty": "easy",
+  "points": 150,
+  "description": "Analyze this /var/log/auth.log snippet. How many FAILED login attempts did IP 10.10.14.5 make?\n\nJan  5 09:01:12 server sshd[1234]: Failed password for root from 10.10.14.5 port 43210 ssh2\nJan  5 09:01:14 server sshd[1234]: Failed password for root from 10.10.14.5 port 43211 ssh2\nJan  5 09:01:15 server sshd[1235]: Failed password for admin from 10.10.14.5 port 43212 ssh2\nJan  5 09:01:17 server sshd[1236]: Accepted password for admin from 192.168.1.10 port 52100 ssh2\nJan  5 09:01:18 server sshd[1237]: Failed password for root from 10.10.14.5 port 43213 ssh2\nJan  5 09:01:20 server sshd[1238]: Failed password for user from 10.10.14.5 port 43214 ssh2\nJan  5 09:01:22 server sshd[1239]: Failed password for test from 10.10.14.5 port 43215 ssh2\n\nSubmit as: flag{number}",
+  "flag": "flag{5}",
+  "hints": [
+    "Count lines with 'Failed password' AND IP '10.10.14.5'",
+    "Ignore the 'Accepted' line — that's from a different IP",
+    "Count: root(3) + admin(1) + user(1) + test(1) = wait, recount carefully"
+  ],
+  "resources": [
+    "https://www.ssh.com/academy/ssh/log",
+    "https://linux.die.net/man/8/sshd"
+  ],
+  "ncl_category": "Log Analysis"
+}

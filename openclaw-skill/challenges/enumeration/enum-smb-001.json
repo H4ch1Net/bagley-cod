@@ -1,0 +1,19 @@
+{
+  "id": "enum-smb-001",
+  "title": "SMB Share Enumeration",
+  "category": "enumeration",
+  "difficulty": "medium",
+  "points": 200,
+  "description": "You run smbclient to enumerate shares on a Windows server:\n\n$ smbclient -L //192.168.1.50 -N\n\nSharename       Type      Comment\n---------       ----      -------\nADMIN$          Disk      Remote Admin\nC$              Disk      Default share\nIPC$            IPC       Remote IPC\nPublic          Disk      Public Files\nHR_Backup       Disk      HR Department Backup\n\nShares ending with $ are hidden administrative shares. Which non-hidden share is most likely to contain sensitive employee data?\n\nSubmit as: flag{share_name}",
+  "flag": "flag{HR_Backup}",
+  "hints": [
+    "Ignore shares ending in $ — those are default Windows admin shares",
+    "HR departments handle employee personal information",
+    "A backup share for HR likely contains PII, payroll, or credentials"
+  ],
+  "resources": [
+    "https://book.hacktricks.xyz/network-services-pentesting/pentesting-smb",
+    "https://www.samba.org/samba/docs/current/man-html/smbclient.1.html"
+  ],
+  "ncl_category": "Enumeration & Exploitation"
+}
